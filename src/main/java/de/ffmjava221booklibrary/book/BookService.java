@@ -1,12 +1,13 @@
-package de.ffmjava221booklibrary;
+package de.ffmjava221booklibrary.book;
 
+import de.ffmjava221booklibrary.book.model.Book;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class BookService {
-    private BookRepo bookRepo;
+    private final BookRepo bookRepo;
 
     public BookService(BookRepo bookRepo) {
         this.bookRepo = bookRepo;

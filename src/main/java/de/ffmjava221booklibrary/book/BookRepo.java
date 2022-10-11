@@ -1,5 +1,7 @@
-package de.ffmjava221booklibrary;
+package de.ffmjava221booklibrary.book;
 
+import de.ffmjava221booklibrary.book.model.Book;
+import de.ffmjava221booklibrary.book.model.BookType;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -9,7 +11,7 @@ import java.util.NoSuchElementException;
 @Component
 public class BookRepo {
     private final List<Book> bookRepo= new ArrayList<>(List.of(
-            new Book("1234","Krieg der Sterne", "author",BookType.EBOOK),
+            new Book("1234","Krieg der Sterne", "author", BookType.EBOOK),
             new Book("5667","Buch zwei","author2",BookType.AUDIOBOOK)
     ));
     public List<Book> getBookList() {
@@ -18,7 +20,7 @@ public class BookRepo {
 
     public Book getBook(String isbn) {
         for (Book book : bookRepo){
-            if (book.isbn() == isbn) {
+            if (book.isbn().equals(isbn)) {
                 return book;
             }
         }
@@ -32,7 +34,7 @@ public class BookRepo {
 
     public Book deleteBook(String isbn) {
         for (Book book : bookRepo){
-            if (book.isbn() == isbn) {
+            if (book.isbn().equals(isbn)) {
                 bookRepo.remove(book);
                 return book;
             }

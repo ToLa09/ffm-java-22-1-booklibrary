@@ -1,4 +1,4 @@
-package de.ffmjava221booklibrary;
+package de.ffmjava221booklibrary.book.model;
 
 public enum BookType {
     EBOOK,

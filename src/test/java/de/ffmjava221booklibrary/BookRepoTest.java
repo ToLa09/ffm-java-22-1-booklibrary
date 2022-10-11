@@ -1,5 +1,8 @@
 package de.ffmjava221booklibrary;
 
+import de.ffmjava221booklibrary.book.model.Book;
+import de.ffmjava221booklibrary.book.BookRepo;
+import de.ffmjava221booklibrary.book.model.BookType;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -8,7 +11,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BookRepoTest {
-    private BookRepo bookRepo = new BookRepo();
+    private final BookRepo bookRepo = new BookRepo();
 
     @Test
     void getBookList() {
@@ -18,7 +21,7 @@ class BookRepoTest {
         List<Book> actual = bookRepo.getBookList();
         //then
         List<Book> expected = new ArrayList<>(List.of(
-                new Book("1234","Krieg der Sterne", "author",BookType.EBOOK),
+                new Book("1234","Krieg der Sterne", "author", BookType.EBOOK),
                 new Book("5667","Buch zwei","author2",BookType.AUDIOBOOK)
         ));
         assertEquals(expected,actual);
@@ -38,7 +41,7 @@ class BookRepoTest {
     @Test
     void addBook() {
         //given
-        Book testBook = new Book("1234","testtitle","testauthor",BookType.HARDCOVER);
+        Book testBook = new Book("1234","test title","test author",BookType.HARDCOVER);
         //when
         Book actual = bookRepo.addBook(testBook);
         //then

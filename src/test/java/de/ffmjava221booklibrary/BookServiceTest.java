@@ -1,5 +1,9 @@
 package de.ffmjava221booklibrary;
 
+import de.ffmjava221booklibrary.book.model.Book;
+import de.ffmjava221booklibrary.book.BookRepo;
+import de.ffmjava221booklibrary.book.BookService;
+import de.ffmjava221booklibrary.book.model.BookType;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -17,7 +21,7 @@ class BookServiceTest {
    void getBookListReturnsBooklist(){
        //given
         List<Book> testList = new ArrayList<>(List.of(
-                new Book("1234","test","author",BookType.HARDCOVER)
+                new Book("1234","test","author", BookType.HARDCOVER)
         ));
        when(bookRepo.getBookList()).thenReturn(testList);
        //when
@@ -62,5 +66,6 @@ class BookServiceTest {
        Book actual = bookService.deleteBook(isbn);
        //then
        Book expected = testBook;
+       assertEquals(expected,actual);
    }
 }

@@ -23,4 +23,8 @@ public class BookService {
     public Book addBook(Book book) {
         return bookRepo.addBook(book);
     }
+
+    public Book deleteBook(String isbn) {
+        return bookRepo.deleteBook(isbn);
+    }
 }

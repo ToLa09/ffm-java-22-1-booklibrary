@@ -9,7 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/books")
 public class BookController {
-    private BookService bookService;
+    private final BookService bookService;
 
     public BookController(BookService bookService) {
         this.bookService = bookService;
@@ -21,7 +21,7 @@ public class BookController {
     }
 
     @GetMapping("{isbn}")
-    public Book getBookList(@PathVariable String isbn){
+    public Book getBook(@PathVariable String isbn){
         return bookService.getBook(isbn);
     }
 
